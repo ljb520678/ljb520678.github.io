@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	canvas{
+		width:400px;
+		height: 400px;
+		border: 1px solid black;
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400">你的浏览器不支持CANVAS</canvas>
+	
+</body>
+<script type="text/javascript">
+/*
+	shadowColor 阴影颜色
+	shadowOffsetX 阴影的左右偏移值
+	shadowOffsetY 阴影的上下偏移值
+	shadowBlur 阴影模糊度
+*/
+var canvas = document.querySelector("canvas");
+var ctx = canvas.getContext("2d");
+ctx.font = "50px 黑体"
+
+ctx.save()	//保存当前位置内容
+shadow(5,5,10,"green")
+ctx.fillStyle = "red";  //设置填充颜色
+ctx.fillText("阴影内容",100,100)
+ctx.restore()	//返回上一次保存的属性,只能保存一次保存一次
+
+shadow(5,5,10,"black")
+ctx.strokeStyle = "blue" //设置描边颜色
+ctx.strokeText("阴影内容",200,200)
+
+
+function shadow(x,y,blur,color){
+	ctx.shadowOffsetX = x;
+	ctx.shadowOffsetY = y;
+	ctx.shadowBlur = blur;
+	ctx.shadowColor = color;
+}
+
+</script>
+</html>
