@@ -1,135 +1,3 @@
-<<<<<<< Updated upstream
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		canvas{
-			border:1px solid black;
-		}
-	</style>
-</head>
-<body>
-	<a href="zd.html">iashodsad</a>
-	<canvas width="600" height="600"></canvas>
-</body>
-	<script>
-	var canvas = document.querySelector("canvas");
-	var ctx = canvas.getContext("2d");
-	var arr = [];
-
-	function Ball(x,y,r){
-		var ball = this;
-		ball.x = x;
-		ball.y = y;
-		ball.changeX = Math.random()*3;
-		ball.changeY = Math.random()*4;
-		ball.speedx = ball.changeX;
-		ball.speedy = ball.changeY;
-		ball.r = r;
-		var num1 = Math.floor(Math.random()*255);
-		var num2 = Math.floor(Math.random()*255);
-		var num3 = Math.floor(Math.random()*255);
-
-		ball.draw = function(){
-			ctx.beginPath();
-			ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);
-			ctx.fillStyle = "rgb("+num1+","+num2+","+num3+")";
-			ctx.fill();
-			ctx.closePath()
-		},
-		ball.move = function(){
-			ball.x += ball.speedx;
-			ball.y += ball.speedy;
-
-			if(ball.x<ball.r){
-				ball.x = ball.r;
-				ball.speedx = ball.changeX;
-			}else if(ball.x>canvas.clientWidth-ball.r){
-				ball.x = canvas.clientWidth-ball.r;
-				ball.speedx = -ball.changeX;
-			}
-			if(ball.y<ball.r){
-				ball.y = ball.r;
-				ball.speedy = ball.changeY;
-			}else if(ball.y>canvas.clientHeight-ball.r){
-				ball.y = canvas.clientHeight-ball.r;
-				ball.speedy = -ball.changeY;
-			}
-		}
-	}
-
-	
-
-	setInterval(function(){
-		ctx.clearRect(0,0,600,600);
-		for(var i = 0;i<arr.length;i++){
-			arr[i].draw();
-			arr[i].move();
-			
-		}
-		check();
-	},10)
-	
-
-	document.onclick = function(){
-		var ball = new Ball(20,20,Math.random()*20);
-		arr.push(ball);
-	}
-
-	//0          5
-	//1 2 3 4
-
-	//1
-	//2 3 4
-
-	//2
-	//3 4
-
-	//3
-	//4
-
-	function check(){
-		if(arr[1]){
-			for(var i = 0;i<= arr.length-2;i++){
-				for(var j = i+1;j<= arr.length-1;j++){
-					var dx = arr[i].x - arr[j].x;
-					var dy = arr[i].y - arr[j].y;
-					var d = Math.sqrt((dx*dx)+(dy*dy));
-
-					if(d < arr[i].r+arr[j].r){
-						if(arr[i].x<arr[j].x){
-							arr[i].speedx = -arr[j].changeX;
-							arr[j].speedx = arr[i].changeX;
-						}if(arr[i].x>arr[j].x){
-							arr[i].speedx = arr[j].changeX;
-							arr[j].speedx = -arr[i].changeX;
-						}
-						if(arr[i].y<arr[j].y){
-							arr[i].speedy = -arr[j].changeY;
-							arr[j].speedy = arr[i].changeY;
-						}if(arr[i].y>arr[j].y){
-							arr[i].speedy = arr[j].changeY;
-							arr[j].speedy = -arr[i].changeY;
-						}
-						var px = arr[i].changeX;
-						var py = arr[i].changeY;
-						arr[i].changeX = arr[j].changeX;
-						arr[i].changeY = arr[j].changeY;
-						arr[j].changeX = px;
-						arr[j].changeY = py;
- 					}
-				}
-			}
-		}
-		
-	}
-
-
-	</script>
-</html>
-=======
 <!doctype html>
 
 
@@ -216,12 +84,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://yoursite.com/2016/11/10/hello-world/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
+<meta property="og:updated_time" content="2016-11-10T07:15:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick">
 
 
 
@@ -242,10 +117,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/10/hello-world/"/>
 
 
-  <title> Hexo </title>
+  <title> Hello World | Hexo </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="">
@@ -266,9 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -347,9 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -369,10 +242,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/11/10/hello-world/" itemprop="url">
-                  Hello World
-                </a>
+                Hello World
               
             
           </h1>
@@ -412,9 +282,7 @@
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -424,16 +292,20 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -444,16 +316,15 @@
 
       
       
-        <div class="post-eof"></div>
-      
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -461,6 +332,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -480,8 +355,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -517,6 +401,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -613,6 +508,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
@@ -644,4 +543,3 @@
 
 </body>
 </html>
->>>>>>> Stashed changes
